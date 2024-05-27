@@ -1,5 +1,5 @@
-import DemoQaPage from "./page-objects/DemoQaPage";
-import ButtonsPage from "./page-objects/ButtonsPage";
+import DemoQaPage from "./pageobject/DemoQaPage";
+import ButtonsPage from "./pageobject/ButtonsPage";
 
 describe("toolsQA button click test", () => {
   const demoQaPage = new DemoQaPage();
