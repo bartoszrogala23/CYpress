@@ -19,7 +19,7 @@ class DemoQaPage {
       .click();
   }
 
-  selectElementsPage(cardName, buttonName) {
+  selectPage(cardName, buttonName) {
     this.visitHomePage();
     this.seletCard(cardName);
     cy.get(".element-group").contains(cardName).should("be.visible");
@@ -28,4 +28,3 @@ class DemoQaPage {
 }
 
 export default DemoQaPage;
-

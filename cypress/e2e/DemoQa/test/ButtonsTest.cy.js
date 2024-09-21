@@ -1,12 +1,12 @@
-import DemoQaPage from "./pageobject/DemoQaPage";
-import ButtonsPage from "./pageobject/ButtonsPage";
+import DemoQaPage from "../pageobject/DemoQaPage";
+import ButtonsPage from "../pageobject/ButtonsPage";
 
 describe("toolsQA button click test", () => {
   const demoQaPage = new DemoQaPage();
   const buttonsPage = new ButtonsPage();
 
   beforeEach(() => {
-    demoQaPage.selectElementsPage("Elements", "Buttons");
+    demoQaPage.selectPage("Elements", "Buttons");
   });
 
   it("should double click 'double click me' button", () => {
