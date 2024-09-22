@@ -1,11 +1,20 @@
+import HomePage from "../pageobject/HomePage";
+
 const credentialValue = "admin";
 
 describe("when authorizing with correct credentials", () => {
-  it("should be possible to send credentials via adress", () => {
-    cy.visit("http://admin:admin@https://the-internet.herokuapp.com/basic_auth");
-    cy.get("#content")
-      .contains("Basic Auth")
-      .contains("Congratulations! You must have the proper credentials.")
-      .should("be.visible");
+  const homePage = new HomePage();
+
+  describe("Basic Auth Test", () => {
+    it.only("should access the page with Basic Auth", () => {
+      cy.intercept("GET", "/basic_auth", (request) => {
+        request.headers["Authorization"] = "Basic " + btoa("admin:admin");
+      }).as("authRequest");
+
+      cy.visit("/https://admin:admin@the-internet.herokuapp.com/basic_auth");
+      cy.contains(
+        "Congratulations! You must have the proper credentials."
+      ).should("be.visible");
+    });
   });
 });
